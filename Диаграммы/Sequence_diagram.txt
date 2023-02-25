@@ -1,0 +1,34 @@
+actor User #yellow
+' The only difference between actor
+'and participant is the drawing
+participant Order
+participant BotControl
+participant Robot
+participant DrinkControl
+participant Camera
+User->Order: Create order
+Order->BotControl: Start
+BotControl->Camera: getRobotPosition
+BotControl->DrinkControl: Open
+DrinkControl->DrinkControl: chkLevel
+DrinkControl->DrinkControl: Close
+BotControl->Camera: getUserPosition
+BotControl->Camera: getBarrierPosition
+BotControl->BotControl: newRoute
+BotControl->Robot: setCoordinate
+BotControl->Robot: Forward
+BotControl->Robot: Stop
+BotControl->Robot: Left
+BotControl->Robot: Right
+BotControl->Order: Update status
+Order->User: Send order status
+BotControl->Camera: getRobotPosition
+BotControl->Camera: getBarrierPosition
+BotControl->BotControl: newRoute
+BotControl->Robot: setCoordinate
+BotControl->Robot: Forward
+BotControl->Robot: Stop
+BotControl->Robot: Left
+BotControl->Robot: Right
+BotControl->Order: Update status
+@enduml

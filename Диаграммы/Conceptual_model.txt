@@ -1,0 +1,61 @@
+@startuml
+User o- Order
+BotControl -> DrinkControl
+BotControl -> Camera
+Order -> BotControl
+Robot -> BotControl
+BotControl <|- FooBotControl
+class Robot{
+battery:float
+status:int
+chkbattery()
+setCoordinate(x,y)
+forward(unsigned int t)
+stop()
+left(unsigned int t)
+right(unsigned int t)
+}
+class User{
+lname:string
+fname:string
+getInfo()
+send_order_status()
+}
+class Order{
+date:date
+time:time
+status:int
+cancel()
+create_order()
+update_status(int s)
+}
+class BotControl{
+x:int
+y:int
+degree:int
+start()
+new Route()
+}
+class Camera{
+status:int
+getRobotPosition()
+getUserPosition()
+getBarrierPosition()
+}
+class DrinkControl{
+level:float
+status:int
+open()
+open(unsigned int t)
+close()
+chkLevel()
+}
+class FooBotControl{
+x:int
+y:int
+degree:int
+start()
+new Route()
+}
+@enduml
+
